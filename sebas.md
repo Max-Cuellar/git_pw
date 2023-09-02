@@ -1,2 +1,0 @@
-### SEBAS GOD ###
-(NO TANTO)
