@@ -1,0 +1,20 @@
+div {
+  width: 75%;
+  margin: auto;
+}
+.parrafo {
+  background-color: lightblue;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  line-height: 1.5em;
+}
+header img {
+  height: 200px;
+  width: 100%;
+}
+input:checked ~ .parrafo {
+  background-color: khaki;
+}
+body .titule {
+  background-color: gainsboro;
+  font-size: larger;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contenedor{
+            margin: 0px;
+            padding: 0px;
+            background-color:lightgrey;
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            align-items: center;
+
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0 ;
+        }
+        .caja {
+            float: left;
+            margin: 2px;
+            border: 1px solid orange;
+            width: calc(100%/4 - 2px *2 - 1px*2);
+            height: 200px;
+            background-color: red;
+        }
+        #caja1:hover{
+            transform: rotate(145deg);
+        }
+        #caja2:hover{
+            transform: translateY(100px)
+        }
+        #caja3.caja:hover{
+            transform:translateX(100px);
+        }
+        #caja4:hover{
+            -webkit-border-radius: 50%; 
+        }
+        
+    </style>
+</head>
+<body>
+    <div class = "contenedor">
+        <div id = "caja1" class="caja">Rotar 45 grados</div>
+        <div id = "caja2" class = "caja">Bajar 100px</div>
+        <div id = "caja3" class = "caja">Moverse 50px</div>
+        <div id = "caja4" class = "caja">Achicar radio</div>
+    </div>
+</body>
+</html>

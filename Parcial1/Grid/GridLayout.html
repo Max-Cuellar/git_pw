@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>  
+    .grid-container{
+      display: grid;
+      background-color: cornsilk;
+      grid-template-columns: 100px 100px 100px;
+      grid-template-rows: auto auto;
+      grid-gap: 5px;     
+      grid-template-areas: 
+      "area2 area1 area1"
+      "area2 area2 area2"
+    }
+    .grid-item1 {
+        background-color: blue;
+        text-align: center;
+        border: black 5px solid;
+        grid-area: area1;
+    }
+    .grid-item2 {
+    background: red;
+    text-align: center;
+    border: black 5px solid;
+    grid-area: area2;
+    }
+    .
+    </style>
+</head>
+<body>
+    <div class="grid-item1">
+        ENCABEZADO
+    </div>
+    <div class="grid-item2">
+        CUERPO
+    </div>
+    <div class="grid-item2">
+        CUERPO
+    </div>
+</body>
+</html>

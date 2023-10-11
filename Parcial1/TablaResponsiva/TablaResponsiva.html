@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TablaResponsiva</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 5px;
+        }
+    
+        table {
+            width: 100%;
+        }
+    
+        table,
+        tbody,
+        tr,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    
+        td:nth-child(even) {
+            background-color: orange;
+        }
+    
+        @media screen and (max-width: 600px) {
+            table,
+            tbody,
+            tr,
+            td {
+                display: block;
+                width: 100%;
+            }
+    
+            thead {
+                display: none;
+            }
+
+            tbody tr {
+                margin-bottom: 10px;
+                border: none;
+            }
+            td:nth-child(1)::before {
+                content: "Hora |";
+                font-weight: bold;
+                position: Flex;
+                left: 10px;
+            }
+            td:nth-child(2)::before {
+                content: "Lunes |";
+                font-weight: bold;
+                position: Flex;
+                left: 10px;
+            }
+            td:nth-child(3)::before {
+                content: "Martes |";
+                font-weight: bold;
+                position: Flex;
+                left: 10px;
+            }
+
+            td:nth-child(4)::before {
+                content: "Miercoles |";
+                font-weight: bold;
+                position: flex;
+                left: 10px;
+            }
+
+            td:nth-child(5)::before {
+                content: "Jueves |";
+                font-weight: bold;
+                position: flex;
+                left: 10px;
+            }
+
+            td:nth-child(6)::before {
+                content: "Viernes |";
+                font-weight: bold;
+                position: flex;
+                left: 10px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>Hora</th>
+                <th>Lunes</th>
+                <th>Martes</th>
+                <th>Miercoles</th>
+                <th>Jueves</th>
+                <th>Viernes</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>7:00 - 8:00</td>
+                <td>Programacion Web</td>
+                <td>Programacion Web</td>
+                <td>Programacion Web</td>
+                <td>Programacion Web</td>
+                <td>Programacion Web</td>
+            </tr>
+            <tr>
+                <td>8:00 - 9:00</td>
+                <td>Arquitectura de computadoras</td>
+                <td>Sistemas Operativos</td>
+                <td>Arquitectura de computadoras</td>
+                <td>Sistemas Operativos</td>
+                <td>Arquitectura de computadoras</td>
+            </tr>
+            <tr>
+                <td>9:00 - 10:00</td>
+                <td>Libre</td>
+                <td>Sistemas Operativos</td>
+                <td>Arquitectura de computadoras</td>
+                <td>Sistemas Operativos</td>
+                <td>Arquitectura de computadoras<td>
+            </tr>
+            <tr>
+                <td>10:00 - 11:00</td>
+                <td>Graficacion</td>
+                <td>Graficacion</td>
+                <td>Graficacion</td>
+                <td>Graficacion</td>
+                <td>Graficacion</td>
+            </tr>
+            <tr>
+                <td>11:00 - 12:00</td>
+                <td>Libre</td>
+                <td>Libre</td>
+                <td>Libre</td>
+                <td>Libre</td>
+                <td>Libre</td>
+            </tr>
+            <tr>
+                <td>12:00 - 01:00</td>
+                <td>Fundamentos de telecomunicaciones</td>
+                <td>Ing. de Software</td>
+                <td>Fundamentos de telecomunicaciones</td>
+                <td>Ing. de Software</td>
+                <td>Libre</td>
+            </tr>
+            <tr>
+                <td>01:00 - 02:00</td>
+                <td>Fundamentos de telecomunicaciones</td>
+                <td>Ing. de Software</td>
+                <td>Fundamentos de telecomunicaciones</td>
+                <td>Ing. de Software</td>
+                <td>Ing. de Software</td>
+            </tr>
+            <tr>
+                <td>02:00 - 03:00</td>
+                <td>Taller de base de datos</td>
+                <td>Taller de base de datos</td>
+                <td>Taller de base de datos</td>
+                <td>Taller de base de datos</td>
+                <td>Taller de base de datos</td>
+            </tr>
+
+        </tbody>
+    </table>
+</body>
+
+</html>

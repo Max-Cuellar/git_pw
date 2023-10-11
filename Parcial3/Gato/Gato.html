@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+    <style>
+        .contenedor {
+            display: grid;
+            width: 100vh;
+            height: 100vh;
+            font-size: xx-large;
+            background-color: cornsilk;
+            grid-template-columns: 200px 200px 200px;
+            grid-template-rows: 200px 200px 200px 200px;
+            justify-content: center;
+            align-items: stretch;
+            justify-items: stretch;
+            grid-gap: 5px;
+        }
+
+        .caja {
+            margin: 10px;
+            border: solid black 2px;
+            background-color: chocolate;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+        }
+
+        .jugadorX {
+            background-color: green;
+        }
+
+        .jugadorO {
+            background-color: red;
+        }
+
+        #caja11 {
+            align-self: center;
+            justify-self: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="cont" class="contenedor">
+        <div id="caja1" class="caja"></div>
+        <div id="caja2" class="caja"></div>
+        <div id="caja3" class="caja"></div>
+        <div id="caja4" class="caja"></div>
+        <div id="caja5" class="caja"></div>
+        <div id="caja6" class="caja"></div>
+        <div id="caja7" class="caja"></div>
+        <div id="caja8" class="caja"></div>
+        <div id="caja9" class="caja"></div>
+
+        <div id="caja10"></div>
+        <div id="caja11"><button id="btnClear" type="button">LIMPIAR</button></div>
+        <div id="caja12"></div>
+
+    </div>
+    <script>
+        let xo = "X";
+        document.getElementById("cont").addEventListener("click", function (e) {
+            if (e.target.classList.contains("caja") && e.target.innerText === "") {
+                e.target.innerText = xo;
+                e.target.classList.add(xo === "X" ? "jugadorX" : "jugadorO");
+                xo = xo === "X" ? "O" : "X";
+            }
+        });
+
+        document.getElementById("btnClear").addEventListener("click", function () {
+            let cajas = document.getElementsByClassName("caja");
+            for (const elemento of cajas) {
+                elemento.innerText = "";
+                elemento.classList.remove("jugadorX", "jugadorO");
+            }
+            xo = "X";
+        });
+    </script>
+</body>
+</html>

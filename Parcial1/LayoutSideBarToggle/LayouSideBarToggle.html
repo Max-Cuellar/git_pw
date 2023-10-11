@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .container{
+            background-color: beige;
+            float: left;
+        }
+        #caja1{
+            color: white;
+            background-color: chocolate;
+            border: 4px solid black;
+            position: static;
+            width:auto;
+            height: 250px;
+            text-align: justify;
+        }
+        input:checked ~ div#caja2 {
+            display: none;
+        }
+        input:checked ~ div#caja3{
+            width: 100%;
+        }
+        #caja2{
+            float: left;
+            color: #fff;
+            background-color:blueviolet;
+            border: 4px solid black;
+            position: relative;
+            top: 4px;
+            left: 1020px;
+            width: 250px;
+            height: 500px;
+            text-align: center;
+            display: block;
+        }
+        #caja3{
+            color: brown;
+            background-color: #fff;
+            border: 4px solid black;
+            position: absolute;
+            top: 270px;
+            left: auto;
+            align-items: center;
+            width:78%;
+            height: 500px;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<header>
+    <div id="caja1">ESTO ES UN HEADER QUE ESTOY USANDO COMO ENCABEZADO CON LA PROPIEDAD STATIC</div>
+</header>
+<body>
+    <div class="container">
+        <input type="checkbox" id="toggle">
+    <div id="caja2">ESTA ES UNA CAJA QUE ESTOY USANDO COMO BARRA LATERAL DEL LADO DERECHO DE LA PAGINA CON LA PROPIEDAD RELATIVE
+    </div>
+    <div id="caja3">     
+        <label for="toggle">Menu</label>
+        <p>ESTA VA A SER MI CAJA DE CONTENIDO DONDE PONDRE UNA IMAGEN DE ASUKA GOD PROPIEDAD ABSULUTE</p>
+        <img src="asuka_god.png" width="50%" height="50%">
+    </div>
+    </div>
+</body>
+</html>
