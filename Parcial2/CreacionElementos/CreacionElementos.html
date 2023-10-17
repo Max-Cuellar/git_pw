@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="contenedor"></div>
+
+    <script>
+
+        let encabezados = ['Nombre', 'ApellidoP', 'ApellidoM'];
+        let datos = [
+            { nombre: 'Max', apellidop: 'Cuellar', apellidom: 'Gomez' },
+            { nombre: 'Eric', apellidop: 'Fernandez', apellidom: 'Rodriguez' },
+            { nombre: 'Sebastian', apellidop: 'Garcia', apellidom: 'Ramirez' }
+        ];
+
+
+        let tab = document.createElement("table");
+        let enc = document.createElement("thead");
+        let fil = document.createElement("tr");
+
+        encabezados.forEach(elemento => {
+            let th = document.createElement("th");
+            th.innerText = elemento;
+            fil.appendChild(th);
+        })
+
+        enc.appendChild(fil);
+        tab.appendChild(enc);
+
+        tbody = document.createElement("tbody");
+
+        datos.forEach(function (elemento) {
+
+            let fila = document.createElement("tr");
+
+            let td1 = document.createElement("td");
+            td1.innerText = elemento.nombre;
+            fila.appendChild(td1);
+
+            let td2 = document.createElement("td");
+            td2.innerText = elemento.apellidop;
+            fila.appendChild(td2);
+
+
+            let td3 = document.createElement("td");
+            td3.innerText = elemento.apellidom;
+            fila.appendChild(td3);
+
+            tbody.appendChild(fila);
+        })
+
+        tab.appendChild(tbody);
+
+        document.getElementById("contenedor").appendChild(tab);
+
+        tab.style.borderCollapse = "collapse";
+        tab.style.border = "1px solid black";
+
+        let thElements = enc.getElementsByTagName("th");
+        for (let i = 0; i < thElements.length; i++) {
+            thElements[i].style.backgroundColor = "lightgray";
+            thElements[i].style.padding = "8px";
+            thElements[i].style.textAlign = "center";
+        }
+
+        let tdElements = tbody.getElementsByTagName("td");
+        for (let i = 0; i < tdElements.length; i++) {
+            tdElements[i].style.border = "1px solid black";
+            tdElements[i].style.padding = "8px";
+            tdElements[i].style.textAlign = "center";
+        }
+
+    </script>
+</body>
+
+</html>
