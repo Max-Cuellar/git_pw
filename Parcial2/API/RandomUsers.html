@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERFILES RANDOM</title>
+    <style>
+        body {
+            background-color: #3498db;
+            text-align: center;
+        }
+
+        button {
+            background-color: #777;
+            color: #fff;
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #profileInfo {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            color: #333;
+            text-align: left; 
+        }
+
+        #profileImage {
+            max-width: 100px;
+            border: 1px solid #333;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <button id="btnXml">Peticion XmlHttpRequest</button>
+    <button id="btnFetch">Peticion Fetch</button>
+    <button id="btnAsync">Peticion Async</button>
+    <button id="btnJQ">Peticion JQ</button>
+    <button id="btnAX">Peticion AX</button>
+
+    <div id="profileInfo">
+        <img id="profileImage" src="" alt="Profile Image">
+    </div>
+
+    <script>
+        window.onload = function () {
+
+            document.getElementById("btnXml").addEventListener("click", () => {
+                const xhr = new XMLHttpRequest();
+                xhr.addEventListener("readystatechange", function () {
+                    if (this.readyState === this.DONE) {
+                        const objetoRespuesta = JSON.parse(this.responseText);
+                        const profile = objetoRespuesta.results[0];
+                        const profileInfo = `
+                            <img id="profileImage" src="${profile.picture.large}" alt="Profile Image">
+                            Name: ${profile.name.title} ${profile.name.first} ${profile.name.last}<br>
+                            Gender: ${profile.gender}<br>
+                            Email: ${profile.email}<br>
+                            Location: ${profile.location.street.number} ${profile.location.street.name}, ${profile.location.city}, ${profile.location.state}, ${profile.location.country}, ${profile.location.postcode}<br>
+                            Phone: ${profile.phone}<br>
+                            Cell: ${profile.cell}<br>
+                            Date of Birth: ${new Date(profile.dob.date).toLocaleDateString()}<br>
+                        `;
+                        document.getElementById("profileInfo").innerHTML = profileInfo;
+                    }
+                });
+                xhr.open("GET", "https://randomuser.me/api/");
+                xhr.send();
+            })
+
+            document.getElementById("btnFetch").addEventListener("click", () => {
+                fetch("https://randomuser.me/api/")
+                    .then(objRespuesta => objRespuesta.json())
+                    .then(datoJson => {
+                        const profile = datoJson.results[0];
+                        const profileInfo = `
+                            <img id="profileImage" src="${profile.picture.large}" alt="Profile Image">
+                            Name: ${profile.name.title} ${profile.name.first} ${profile.name.last}<br>
+                            Gender: ${profile.gender}<br>
+                            Email: ${profile.email}<br>
+                            Location: ${profile.location.street.number} ${profile.location.street.name}, ${profile.location.city}, ${profile.location.state}, ${profile.location.country}, ${profile.location.postcode}<br>
+                            Phone: ${profile.phone}<br>
+                            Cell: ${profile.cell}<br>
+                            Date of Birth: ${new Date(profile.dob.date).toLocaleDateString()}<br>
+                        `;
+                        document.getElementById("profileInfo").innerHTML = profileInfo;
+                    });
+            });
+
+            document.getElementById("btnAsync").addEventListener("click", async () => {
+                let objRespuesta = await fetch("https://randomuser.me/api/");
+                let datoJson = await objRespuesta.json();
+                const profile = datoJson.results[0];
+                const profileInfo = `
+                    <img id="profileImage" src="${profile.picture.large}" alt="Profile Image">
+                    Name: ${profile.name.title} ${profile.name.first} ${profile.name.last}<br>
+                    Gender: ${profile.gender}<br>
+                    Email: ${profile.email}<br>
+                    Location: ${profile.location.street.number} ${profile.location.street.name}, ${profile.location.city}, ${profile.location.state}, ${profile.location.country}, ${profile.location.postcode}<br>
+                    Phone: ${profile.phone}<br>
+                    Cell: ${profile.cell}<br>
+                    Date of Birth: ${new Date(profile.dob.date).toLocaleDateString()}<br>
+                `;
+                document.getElementById("profileInfo").innerHTML = profileInfo;
+            });
+
+            document.getElementById("btnAX").addEventListener("click", async () => {
+                axios({
+                    method: 'get',
+                    url: 'https://randomuser.me/api/',
+                    responseType: 'json'
+                })
+                    .then(function (datoJson) {
+                        const profile = datoJson.data.results[0];
+                        const profileInfo = `
+                            <img id="profileImage" src="${profile.picture.large}" alt="Profile Image">
+                            Name: ${profile.name.title} ${profile.name.first} ${profile.name.last}<br>
+                            Gender: ${profile.gender}<br>
+                            Email: ${profile.email}<br>
+                            Location: ${profile.location.street.number} ${profile.location.street.name}, ${profile.location.city}, ${profile.location.state}, ${profile.location.country}, ${profile.location.postcode}<br>
+                            Phone: ${profile.phone}<br>
+                            Cell: ${profile.cell}<br>
+                            Date of Birth: ${new Date(profile.dob.date).toLocaleDateString()}<br>
+                        `;
+                        document.getElementById("profileInfo").innerHTML = profileInfo;
+                    });
+            });
+        }
+
+        $(document).ready(function () {
+            document.getElementById("btnJQ").addEventListener("click", () => {
+                $.getJSON("https://randomuser.me/api/", function (datoJson) {
+                    const profile = datoJson.results[0];
+                    const profileInfo = `
+                        <img id="profileImage" src="${profile.picture.large}" alt="Profile Image"><br>
+                        Name: ${profile.name.title} ${profile.name.first} ${profile.name.last}<br>
+                        Gender: ${profile.gender}<br>
+                        Email: ${profile.email}<br>
+                        Location: ${profile.location.street.number} ${profile.location.street.name}, ${profile.location.city}, ${profile.location.state}, ${profile.location.country}, ${profile.location.postcode}<br>
+                        Phone: ${profile.phone}<br>
+                        Cell: ${profile.cell}<br>
+                        Date of Birth: ${new Date(profile.dob.date).toLocaleDateString()}<br>
+                    `;
+                    document.getElementById("profileInfo").innerHTML = profileInfo;
+                });
+            });
+        })
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
