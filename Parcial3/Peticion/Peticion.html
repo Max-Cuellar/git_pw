@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peticion</title>
+</head>
+<body>
+    <form action="">
+        <button id="btnPeticion" type="button">Realizar peticion</button>
+    </form>
+    <script>
+        document.querySelector('#btnPeticion').addEventListener('click', async () => {
+            let response = await fetch ('http://localhost:8082', {
+                method: 'GET'
+            })
+            let data = await response.text()
+            console.log(data)
+        })
+    </script>
+</body>
+</html>
