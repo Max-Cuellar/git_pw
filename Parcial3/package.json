@@ -1,0 +1,14 @@
+{
+  "name": "serverhttp",
+  "version": "1.0.0",
+  "description": "server https con node y express",
+  "main": "ServerHttp.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Max Cuellar",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
