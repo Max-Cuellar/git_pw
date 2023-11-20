@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista de Repositorios</title>
+    <style>
+         .contenido {
+            background-color: rgb(60, 4, 80);
+            color: aliceblue;
+        }
+        
+    </style>
+    <link rel="stylesheet" href="">
+</head>
+<body class="contenido">
+
+    <h1>Lista</h1>
+
+    <div>
+    <ol id="repositorios"></ol>
+    </div>
+
+    <script>
+
+        const username = "Max-Cuellar"; 
+        const token = "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"; 
+
+        const reposLista = document.getElementById("repositorios");
+ 
+        const headers = new Headers({
+            "Authorization": `token ${token}`
+        });
+
+        fetch(`https://api.github.com/users/${username}/repos`, { headers })
+            .then((response) => response.json())
+            .then((repos) => {
+               
+                repos.forEach((repo) => {
+                    const li = document.createElement("li");
+                    li.textContent = repo.name;
+                    reposLista.appendChild(li);
+                });
+            })
+            .catch((error) => {
+                console.error("Error: " + error);
+            });
+
+    </script>
+</body>
+</html>

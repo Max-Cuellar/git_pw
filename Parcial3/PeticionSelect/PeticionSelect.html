@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body {
+                background-color: #e0c9a9; 
+                display: flex;
+                height: 100vh;
+            }
+            .container {
+                background-color: #d1a186;
+                padding: 20px;
+                border-radius: 10px;
+            }
+        </style>
+        <link rel="stylesheet" href="">
+    </head>
+    <body class="cont">
+        <div class="container">
+            <select id="perros" class="form-control"><option value="affenpinscher">affenpinscher</option><option value="african">african</option><option value="airedale">airedale</option><option value="akita">akita</option><option value="appenzeller">appenzeller</option><option value="australian">australian</option><option value="bakharwal">bakharwal</option><option value="basenji">basenji</option><option value="beagle">beagle</option><option value="bluetick">bluetick</option><option value="borzoi">borzoi</option><option value="bouvier">bouvier</option><option value="boxer">boxer</option><option value="brabancon">brabancon</option><option value="briard">briard</option><option value="buhund">buhund</option><option value="bulldog">bulldog</option><option value="bullterrier">bullterrier</option><option value="cattledog">cattledog</option><option value="cavapoo">cavapoo</option><option value="chihuahua">chihuahua</option><option value="chippiparai">chippiparai</option><option value="chow">chow</option><option value="clumber">clumber</option><option value="cockapoo">cockapoo</option><option value="collie">collie</option><option value="coonhound">coonhound</option><option value="corgi">corgi</option><option value="cotondetulear">cotondetulear</option><option value="dachshund">dachshund</option><option value="dalmatian">dalmatian</option><option value="dane">dane</option><option value="deerhound">deerhound</option><option value="dhole">dhole</option><option value="dingo">dingo</option><option value="doberman">doberman</option><option value="elkhound">elkhound</option><option value="entlebucher">entlebucher</option><option value="eskimo">eskimo</option><option value="finnish">finnish</option><option value="frise">frise</option><option value="gaddi">gaddi</option><option value="germanshepherd">germanshepherd</option><option value="greyhound">greyhound</option><option value="groenendael">groenendael</option><option value="havanese">havanese</option><option value="hound">hound</option><option value="husky">husky</option><option value="keeshond">keeshond</option><option value="kelpie">kelpie</option><option value="kombai">kombai</option><option value="komondor">komondor</option><option value="kuvasz">kuvasz</option><option value="labradoodle">labradoodle</option><option value="labrador">labrador</option><option value="leonberg">leonberg</option><option value="lhasa">lhasa</option><option value="malamute">malamute</option><option value="malinois">malinois</option><option value="maltese">maltese</option><option value="mastiff">mastiff</option><option value="mexicanhairless">mexicanhairless</option><option value="mix">mix</option><option value="mountain">mountain</option><option value="mudhol">mudhol</option><option value="newfoundland">newfoundland</option><option value="otterhound">otterhound</option><option value="ovcharka">ovcharka</option><option value="papillon">papillon</option><option value="pariah">pariah</option><option value="pekinese">pekinese</option><option value="pembroke">pembroke</option><option value="pinscher">pinscher</option><option value="pitbull">pitbull</option><option value="pointer">pointer</option><option value="pomeranian">pomeranian</option><option value="poodle">poodle</option><option value="pug">pug</option><option value="puggle">puggle</option><option value="pyrenees">pyrenees</option><option value="rajapalayam">rajapalayam</option><option value="redbone">redbone</option><option value="retriever">retriever</option><option value="ridgeback">ridgeback</option><option value="rottweiler">rottweiler</option><option value="saluki">saluki</option><option value="samoyed">samoyed</option><option value="schipperke">schipperke</option><option value="schnauzer">schnauzer</option><option value="segugio">segugio</option><option value="setter">setter</option><option value="sharpei">sharpei</option><option value="sheepdog">sheepdog</option><option value="shiba">shiba</option><option value="shihtzu">shihtzu</option><option value="spaniel">spaniel</option><option value="spitz">spitz</option><option value="springer">springer</option><option value="stbernard">stbernard</option><option value="terrier">terrier</option><option value="tervuren">tervuren</option><option value="vizsla">vizsla</option><option value="waterdog">waterdog</option><option value="weimaraner">weimaraner</option><option value="whippet">whippet</option><option value="wolfhound">wolfhound</option></select>
+            <br>
+            <button id="Peticion" type="button" class="btn btn-primary">Peticion</button>
+            <br>
+            <img src="" id="fotoperro" class="img-fluid mx-auto">
+        </div>
+    
+        <script>
+            window.onload = function(){
+                fetch("https://dog.ceo/api/breeds/list/all")
+                .then(respuesta=>respuesta.json())
+                    .then(function(dato){
+                        for (const property in dato.message) {
+                            let option = document.createElement("option")
+                            option.value = property
+                            option.innerText = property
+                            document.getElementById("perros").appendChild(option)
+                        }
+                    });
+                }  
+            document.getElementById("Peticion").addEventListener("click", () => {
+                let option = document.getElementById("perros").value; 
+                fetch(`https://dog.ceo/api/breed/${option}/images/random`)    
+                .then(respuesta=>respuesta.json())
+                .then(function(dato){
+                    document.getElementById("fotoperro").src = dato.message
+                }) 
+            });
+        </script>
+    </body>
+</html>
