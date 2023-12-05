@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Hello, Bootstrap Table!</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.css">
+</head>
+
+<body>
+    <table id="table"></table>
+
+    <button id="exportBtn" class="btn btn-primary">Exportar a PDF</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/bootstrap-table@1.22.1/dist/bootstrap-table.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Configuración de la tabla
+            $('#table').bootstrapTable({
+                url: 'http://localhost:8082/estudiante',
+                columns: [
+                    { field: 'numero_control', title: 'Número de Control' },
+                    { field: 'nombre_pila', title: 'Nombre' },
+                    { field: 'apellido_paterno', title: 'Apellido Paterno' },
+                    { field: 'apellido_materno', title: 'Apellido Materno' },
+                    { field: 'carrera', title: 'Carrera' },
+                    { field: 'edad', title: 'Edad' },
+                    { field: 'estudiante_regular', title: 'Estudiante Regular' }
+                ]
+            });
+        });
+    </script>
+</body>
+
+</html>
