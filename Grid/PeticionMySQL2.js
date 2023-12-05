@@ -40,8 +40,6 @@ app.get('/estudiante', (req, res) => {
 
 app.get('/descargar-pdf/:numero_control', (req, res) => {
     const numeroControl = req.params.numero_control;
-
-    // Realiza la consulta para obtener los datos del estudiante por número de control
     const consulta = `SELECT * FROM estudiante WHERE numero_control = ${numeroControl}`;
 
     connection.query(consulta, (err, results, fields) => {
@@ -52,7 +50,6 @@ app.get('/descargar-pdf/:numero_control', (req, res) => {
             if (results.length === 0) {
                 res.json({ mensaje: 'Estudiante no encontrado' });
             } else {
-                // Genera el PDF
                 const pdf = new jsPDF();
                 pdf.text(`Número de Control: ${results[0].numero_control}`, 10, 10);
                 pdf.text(`Nombre: ${results[0].nombre_pila}`, 10, 20);

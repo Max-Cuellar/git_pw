@@ -183,10 +183,8 @@
   const { jsPDF } = window.jspdf;
   const pdf = new jsPDF();
 
-  // Título del PDF
   pdf.text('Datos del estudiante:', 10, 10);
 
-  // Obtiene los datos del formulario
   const nombre = document.getElementById('nombre_pila').value;
   const apellidoPaterno = document.getElementById('apellido_paterno').value;
   const apellidoMaterno = document.getElementById('apellido_materno').value;
@@ -194,7 +192,6 @@
   const edad = document.getElementById('edad').value;
   const estudianteRegular = document.getElementById('estudiante_regular').value;
 
-  // Muestra los datos en el PDF
   pdf.text(`Nombre: ${nombre}`, 10, 20);
   pdf.text(`Apellido Paterno: ${apellidoPaterno}`, 10, 30);
   pdf.text(`Apellido Materno: ${apellidoMaterno}`, 10, 40);
@@ -202,7 +199,6 @@
   pdf.text(`Edad: ${edad}`, 10, 60);
   pdf.text(`Estudiante Regular: ${estudianteRegular}`, 10, 70);
 
-  // Guarda el PDF
   pdf.save('datos_estudiante.pdf');
 }
 
